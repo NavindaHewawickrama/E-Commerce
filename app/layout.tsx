@@ -9,10 +9,17 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-sans",
   weight: "100 900",
+});
+
+// Configure the Inter font
+const inter = Inter({
+  subsets: ["latin"], // Include subsets as needed
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("bg-background min-h-screen font-sans antialiased",Inter.variable)}
+        className={cn(
+          "bg-background min-h-screen font-sans antialiased",
+          inter.variable // Use the `inter.variable` here
+        )}
       >
         {children}
       </body>
